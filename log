@@ -1,0 +1,195 @@
+g++ -c eglDisplayManager.cpp -O2 -fPIC -Werror -I./ -I/usr/include -o  eglDisplayManager.o
+In file included from /usr/include/EGL/egl.h:36,
+                 from ./eglType.h:3,
+                 from ./eglDisplayManager.h:3,
+                 from eglDisplayManager.cpp:1:
+/usr/include/EGL/eglplatform.h:37:29: error: KHR/khrplatform.h: No such file or directory
+/usr/include/EGL/eglplatform.h:84:22: error: X11/Xlib.h: No such file or directory
+/usr/include/EGL/eglplatform.h:85:23: error: X11/Xutil.h: No such file or directory
+In file included from /usr/include/features.h:341,
+                 from /usr/include/pthread.h:21,
+                 from ./eglDisplayObject.h:11,
+                 from ./eglDisplayManager.h:4,
+                 from eglDisplayManager.cpp:1:
+/usr/include/stdc-predef.h:30:26: error: bits/predefs.h: No such file or directory
+In file included from /usr/include/pthread.h:21,
+                 from ./eglDisplayObject.h:11,
+                 from ./eglDisplayManager.h:4,
+                 from eglDisplayManager.cpp:1:
+/usr/include/features.h:371:25: error: sys/cdefs.h: No such file or directory
+/usr/include/features.h:395:23: error: gnu/stubs.h: No such file or directory
+In file included from /usr/include/pthread.h:22,
+                 from ./eglDisplayObject.h:11,
+                 from ./eglDisplayManager.h:4,
+                 from eglDisplayManager.cpp:1:
+/usr/include/endian.h:36:25: error: bits/endian.h: No such file or directory
+/usr/include/endian.h:60:28: error: bits/byteswap.h: No such file or directory
+In file included from /usr/include/pthread.h:23,
+                 from ./eglDisplayObject.h:11,
+                 from ./eglDisplayManager.h:4,
+                 from eglDisplayManager.cpp:1:
+/usr/include/sched.h:26:24: error: bits/types.h: No such file or directory
+/usr/include/sched.h:29:20: error: stddef.h: No such file or directory
+/usr/include/sched.h:42:24: error: bits/sched.h: No such file or directory
+In file included from /usr/include/pthread.h:24,
+                 from ./eglDisplayObject.h:11,
+                 from ./eglDisplayManager.h:4,
+                 from eglDisplayManager.cpp:1:
+/usr/include/time.h:41:24: error: bits/time.h: No such file or directory
+In file included from ./eglDisplayObject.h:11,
+                 from ./eglDisplayManager.h:4,
+                 from eglDisplayManager.cpp:1:
+/usr/include/pthread.h:26:31: error: bits/pthreadtypes.h: No such file or directory
+/usr/include/pthread.h:27:25: error: bits/setjmp.h: No such file or directory
+/usr/include/pthread.h:28:27: error: bits/wordsize.h: No such file or directory
+In file included from /usr/include/EGL/egl.h:36,
+                 from ./eglType.h:3,
+                 from ./eglDisplayManager.h:3,
+                 from eglDisplayManager.cpp:1:
+/usr/include/EGL/eglplatform.h:87: error: expected initializer before '*' token
+/usr/include/EGL/eglplatform.h:88: error: 'Pixmap' does not name a type
+/usr/include/EGL/eglplatform.h:89: error: 'Window' does not name a type
+/usr/include/EGL/eglplatform.h:96: error: 'EGLNativeDisplayType' does not name a type
+/usr/include/EGL/eglplatform.h:97: error: 'EGLNativePixmapType' does not name a type
+/usr/include/EGL/eglplatform.h:98: error: 'EGLNativeWindowType' does not name a type
+/usr/include/EGL/eglplatform.h:108: error: 'khronos_int32_t' does not name a type
+In file included from ./eglType.h:3,
+                 from ./eglDisplayManager.h:3,
+                 from eglDisplayManager.cpp:1:
+/usr/include/EGL/egl.h:249: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:251: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:252: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:253: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:255: error: expected constructor, destructor, or type conversion before 'const'
+/usr/include/EGL/egl.h:257: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:259: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:262: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:265: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:268: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:270: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:273: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:274: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:277: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:278: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:280: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:282: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:284: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:288: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:290: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:291: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:294: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:297: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:300: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:301: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:304: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:305: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:306: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:307: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:310: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:311: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:312: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:313: error: 'KHRONOS_APICALL' does not name a type
+/usr/include/EGL/egl.h:323: error: 'KHRONOS_APICALL' does not name a type
+In file included from ./eglType.h:4,
+                 from ./eglDisplayManager.h:3,
+                 from eglDisplayManager.cpp:1:
+/usr/include/EGL/eglext.h:14: error: 'KHRONOS_APICALL' does not name a type
+In file included from ./eglType.h:4,
+                 from ./eglDisplayManager.h:3,
+                 from eglDisplayManager.cpp:1:
+/usr/include/EGL/eglext.h:15: error: 'KHRONOS_APICALL' does not name a type
+In file included from ./eglType.h:5,
+                 from ./eglDisplayManager.h:3,
+                 from eglDisplayManager.cpp:1:
+./cmVector.h:27: error: 'size_t' does not name a type
+./cmVector.h:35: error: expected ')' before 'size'
+./cmVector.h:61: error: 'FINLINE' does not name a type
+./cmVector.h:74: error: 'FINLINE' does not name a type
+./cmVector.h:82: error: 'size_type' has not been declared
+./cmVector.h:112: error: 'size_type' has not been declared
+./cmVector.h:149: error: ISO C++ forbids declaration of 'FINLINE' with no type
+./cmVector.h:149: error: expected ';' before 'bool'
+./cmVector.h:157: error: expected ';' before 'FINLINE'
+./cmVector.h:157: error: ISO C++ forbids declaration of 'FINLINE' with no type
+./cmVector.h:157: error: expected ';' before 'void'
+./cmVector.h:166: error: expected ';' before 'FINLINE'
+./cmVector.h:166: error: ISO C++ forbids declaration of 'FINLINE' with no type
+./cmVector.h:166: error: expected ';' before 'void'
+./cmVector.h:176: error: expected ';' before 'FINLINE'
+./cmVector.h:176: error: ISO C++ forbids declaration of 'FINLINE' with no type
+./cmVector.h:176: error: expected ';' before 'void'
+./cmVector.h:184: error: expected ';' before 'FINLINE'
+./cmVector.h:184: error: ISO C++ forbids declaration of 'FINLINE' with no type
+./cmVector.h:184: error: expected ';' before 'void'
+./cmVector.h:190: error: expected ';' before 'void'
+./cmVector.h:205: error: 'FINLINE' does not name a type
+./cmVector.h:218: error: ISO C++ forbids declaration of 'FINLINE' with no type
+./cmVector.h:218: error: expected ';' before 'const'
+./cmVector.h:229: error: expected ';' before 'FINLINE'
+./cmVector.h:229: error: 'FINLINE' does not name a type
+./cmVector.h:238: error: 'FINLINE' does not name a type
+./cmVector.h:247: error: 'FINLINE' does not name a type
+./cmVector.h:290: error: 'int32' does not name a type
+./cmVector.h:299: error: 'FINLINE' does not name a type
+./cmVector.h:305: error: ISO C++ forbids declaration of 'FINLINE' with no type
+./cmVector.h:305: error: expected ';' before 'void'
+eglDisplayManager.cpp:41: error: expected ';' at end of input
+eglDisplayManager.cpp:41: error: expected '}' at end of input
+In file included from ./eglType.h:5,
+                 from ./eglDisplayManager.h:3,
+                 from eglDisplayManager.cpp:1:
+./cmVector.h: In constructor 'cmVector<T>::cmVector()':
+./cmVector.h:32: error: class 'cmVector<T>' does not have any field named '_data'
+./cmVector.h:32: error: class 'cmVector<T>' does not have any field named '_size'
+./cmVector.h:32: error: class 'cmVector<T>' does not have any field named '_allocated'
+./cmVector.h: In copy constructor 'cmVector<T>::cmVector(const cmVector<T>&)':
+./cmVector.h:47: error: class 'cmVector<T>' does not have any field named '_data'
+./cmVector.h:47: error: class 'cmVector<T>' does not have any field named '_size'
+./cmVector.h:47: error: class 'cmVector<T>' does not have any field named '_allocated'
+./cmVector.h:50: error: '_data' was not declared in this scope
+./cmVector.h:51: error: '_size' was not declared in this scope
+./cmVector.h: In member function 'void cmVector<T>::resize(int)':
+./cmVector.h:84: error: '_size' was not declared in this scope
+./cmVector.h:86: error: 'size_type' was not declared in this scope
+./cmVector.h:86: error: expected ';' before 'itemsToCopy'
+./cmVector.h:87: error: expected ';' before 'oldSize'
+./cmVector.h:90: error: '_allocated' was not declared in this scope
+./cmVector.h:92: error: 'itemsToCopy' was not declared in this scope
+./cmVector.h:92: error: 'oldSize' was not declared in this scope
+./cmVector.h:96: error: '_data' was not declared in this scope
+./cmVector.h:103: error: '_allocated' was not declared in this scope
+./cmVector.h:104: error: there are no arguments to 'newReserveSZ' that depend on a template parameter, so a declaration of 'newReserveSZ' must be available
+./cmVector.h:104: note: (if you use '-fpermissive', G++ will accept your code, but allowing the use of an undeclared name is deprecated)
+./cmVector.h:106: error: '_size' was not declared in this scope
+./cmVector.h: In member function 'void cmVector<T>::reserve(int)':
+./cmVector.h:114: error: '_allocated' was not declared in this scope
+./cmVector.h:117: error: 'size_t' does not name a type
+./cmVector.h:118: error: 'roundedSize' was not declared in this scope
+./cmVector.h:120: error: '_data' was not declared in this scope
+./cmVector.h:122: error: '_size' was not declared in this scope
+./cmVector.h:128: error: '_data' was not declared in this scope
+./cmVector.h: In member function 'void cmVector<T>::clear()':
+./cmVector.h:136: error: '_allocated' was not declared in this scope
+./cmVector.h:138: error: '_data' was not declared in this scope
+./cmVector.h:141: error: '_size' was not declared in this scope
+./cmVector.h: In member function 'void cmVector<T>::sort()':
+./cmVector.h:193: error: '_size' was not declared in this scope
+./cmVector.h:195: error: there are no arguments to 'q_sort' that depend on a template parameter, so a declaration of 'q_sort' must be available
+./cmVector.h: In member function 'T* cmVector<T>::erase(T*)':
+./cmVector.h:260: error: 'size_type' was not declared in this scope
+./cmVector.h:260: error: expected ';' before 'offset'
+./cmVector.h:263: error: 'offset' was not declared in this scope
+./cmVector.h:263: error: '_size' was not declared in this scope
+./cmVector.h:268: error: '_data' was not declared in this scope
+./cmVector.h:268: error: there are no arguments to 'memcpy' that depend on a template parameter, so a declaration of 'memcpy' must be available
+./cmVector.h:273: error: there are no arguments to 'end' that depend on a template parameter, so a declaration of 'end' must be available
+./cmVector.h: In member function 'T* cmVector<T>::find(T*) const':
+./cmVector.h:278: error: 'size_type' was not declared in this scope
+./cmVector.h:278: error: expected ';' before 'i'
+./cmVector.h:279: error: 'i' was not declared in this scope
+./cmVector.h:279: error: '_size' was not declared in this scope
+./cmVector.h:281: error: '_data' was not declared in this scope
+./cmVector.h:287: error: there are no arguments to 'end' that depend on a template parameter, so a declaration of 'end' must be available
+./cmVector.h: At global scope:
+./cmVector.h:288: error: expected unqualified-id at end of input
+make: *** [eglDisplayManager.o] Error 1
