@@ -7,10 +7,31 @@
 class EGLContextObject : public EGLObject
 {
 public:
-    bool makeCurrent(EGLSurfaceObject draw, EGLSurfaceObject read)
+    EGLContextObject(EGLConfig config, EGLContext share_context, const EGLint *attrib_list)
+    {
+    }
+    bool makeCurrent(EGLSurfaceObject *draw, EGLSurfaceObject *read)
     {
         return false;
     }
+    void *getNativeObject()
+    {
+        return NULL;
+    }
+    EGLApiType getAPI()
+    {
+        return _api;
+    }
+private:
+    EGLApiType _api;
 };
 
+class EGLContextFactory : public EGLObject
+{
+public:
+    static EGLContextObject* create(EGLConfig config, EGLContext share_context, const EGLint *attrib_list)
+    {
+        return new EGLContextObject(config, share_context, attrib_list);
+    }
+};
 #endif

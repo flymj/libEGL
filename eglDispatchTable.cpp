@@ -75,7 +75,7 @@ EGLSurface eglCreateWindowSurface(EGLDisplay dpy, EGLConfig config, EGLNativeWin
         EGLThreadMgr::setError(EGL_NOT_INITIALIZED);
         return EGL_NO_SURFACE;
     }
-    if( display->created(reinterpret_cast<void *>(win), EGL_RESOURCE_SURFACE) )
+    if( display->surfaceCreated(reinterpret_cast<void *>(win)) )
     {
         EGLThreadMgr::setError(EGL_BAD_ALLOC);
         return EGL_NO_SURFACE;

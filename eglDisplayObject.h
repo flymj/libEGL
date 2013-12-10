@@ -23,7 +23,9 @@ public:
     EGLNativeDisplayType getNativeDisplay(){ return _nativeDisplay; }
     EGLPlatformType getPlatform(){ return _platform; }
     bool validateResource(EGLObject *obj, EGLResourceType type);
-    bool created(void *obj, EGLResourceType type);
+    bool imageCreated(void *obj);
+    bool contextCreated(void *obj);
+    bool surfaceCreated(void *obj);
     EGLContextObject *createContextObject(EGLConfig config, EGLContext share_context, const EGLint *attrib_list);
     EGLSurfaceObject *createSurfaceObject(EGLConfig config, EGLNativeWindowType win, const EGLint *attrib_list);
     bool makeCurrent(EGLSurface draw, EGLSurface read, EGLContext ctx);

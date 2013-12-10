@@ -11,9 +11,10 @@ public:
     EGLConfigObject(EGLDisplayObject *disp){}
     EGLConfigObject(EGLDisplayObject *disp, EGLAttribPair *attr){}
     ~EGLConfigObject(){}
+    unsigned long getConfigID(){}
     static void sort(cmVector<EGLConfigObject*> config){}
 private:
     
-    
+        
 };
 #endif

@@ -3,7 +3,11 @@
 #include <eglObject.h>
 class EGLImageObject : public EGLObject
 {
-
+    public:
+        void *getNativeObject()
+        {
+            return NULL;
+        }
 };
 #endif
 

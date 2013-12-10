@@ -4,16 +4,21 @@
 #include <eglType.h>
 class EGLSurfaceObject : public EGLObject
 {
-    public:
-        bool validate(EGLApiType api)
-        {
-            return true;
-        }
-        bool realize(EGLApiType api)
-        {
-            return true;
-        }
-
-    private:
+public:
+    EGLSurfaceObject(EGLConfig config, EGLNativeWindowType win, const int *attrib_list)
+    {}
+    bool validate(EGLApiType api)
+    {
+        return true;
+    }
+    bool realize(EGLApiType api)
+    {
+        return true;
+    }
+    void *getNativeObject()
+    {
+        return NULL;
+    }
+private:
 };
 #endif

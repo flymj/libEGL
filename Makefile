@@ -2,7 +2,8 @@ GCC=gcc
 LD=ld
 CXXFILES= eglDispatchTable.cpp  \
           eglDisplayManager.cpp \
-          eglDisplayObject.cpp 
+          eglDisplayObject.cpp \
+          eglDevice.cpp 
 
 OBJECTS=${patsubst %.cpp, %.o, ${CXXFILES}}
 
@@ -20,7 +21,7 @@ Headfiles= eglDisplayObject.h  \
 
 CXXFLAGS = -O2 -fPIC -I./ -I/usr/include -o 
 LDFLAGS  = -fPIC -shared -o
-TARGET = tatris.so
+TARGET = libEGL.so
 all: $(OBJECTS)
 	$(GCC) $^  $(LDFLAGS) $(TARGET)
 

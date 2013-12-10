@@ -4,7 +4,7 @@ EGLDisplayObject::EGLDisplayObject(EGLNativeDisplayType display, EGLPlatformType
 {
     _nativeDisplay = display;
     _platform = platform;
-    pthread_mutex_create(&_mutex, NULL);
+    pthread_mutex_init(&_mutex, NULL);
 }
 
 bool EGLDisplayObject::init()
@@ -28,12 +28,11 @@ bool EGLDisplayObject::getConfigs(EGLConfig *configs, EGLint config_size, EGLint
         return false;
     }
 
-    cmVector<EGLConfigObject*>::iterate iter;
-    uint64  *ref = reinterpret_cast<uint64*> configs;
+    unsigned long *ref = reinterpret_cast<unsigned long*>(configs);
     *num_config = 0;
-    for( iter = _configDB.begin(); iter != _configDB.end(); iter ++ )
+    for( int i = 0; i<_configDB.size(); i++ )
     {
-         *ref++ = iter->_configID;
+         *ref++ = _configDB[i]->getConfigID();
          *num_config ++;
          if( *num_config > config_size )
          {
@@ -62,19 +61,19 @@ bool EGLDisplayObject::validateResource(EGLObject *obj, EGLResourceType type)
     switch(type)
     {
         case EGL_RESOURCE_SURFACE:
-            ret = _surfaceDB.findIndex(obj) != -1;
+            ret = _surfaceDB.findIndex(static_cast<EGLSurfaceObject*>(obj)) != -1;
             break;
         case EGL_RESOURCE_CONTEXT:
-            ret = _contextDB.findIndex(obj) != -1;
+            ret = _contextDB.findIndex(static_cast<EGLContextObject*>(obj)) != -1;
             break;
         case EGL_RESOURCE_IMAGE:
-            ret = _imageDB.findIndex(obj) != -1;
+            ret = _imageDB.findIndex(static_cast<EGLImageObject*>(obj)) != -1;
             break;
         case EGL_RESOURCE_SYNC:
-            ret = _syncDB.findIndex(obj) != -1;
+            ret = _syncDB.findIndex(static_cast<EGLSyncObject*>(obj)) != -1;
             break;
         case EGL_RESOURCE_CONFIG:
-            ret = _configDB.findIndex(obj) != -1;
+            ret = _configDB.findIndex(static_cast<EGLConfigObject*>(obj)) != -1;
             break;
         default:
             assert(0);
@@ -84,48 +83,36 @@ bool EGLDisplayObject::validateResource(EGLObject *obj, EGLResourceType type)
     return ret;
 }
 
-bool EGLDisplayObject::created(void *obj, EGLResourceType type)
+bool EGLDisplayObject::imageCreated(void *obj)
 {
-    cmVector<EGLObject*>::iterate iter;
-    cmVector<EGLObject*>::iterate iterEnd;
-    if( type == EGL_RESOURCE_SURFACE )
+    for(int i=0; i<_imageDB.size(); i++)
     {
-        iter = _surfaceDB.begin();
-        iterEnd = _surfaceDB.end();
-    }
-    else if( type == EGL_RESOURCE_CONTEXT )
-    {
-        iter = _contextDB.begin();
-        iterEnd = _contextDB.end();
-    }
-    else if( type == EGL_RESOURCE_IMAGE )
-    {
-        iter = _imageDB.begin();
-        iterEnd = _imageDB.end();
-    }
-    else if( type == EGL_RESOURCE_SYNC )
-    {
-        iter = _syncDB.begin();
-        iterEnd = _syncDB.end();
-    }
-    else if( type == EGL_RESOURCE_CONFIG )
-    {
-        iter = _configDB.begin();
-        iterEnd = _configDB.end();
-    }
-    else
-    {
-        assert(!"error");
-        iter = NULL;
-    }
-    if( iter != NULL )
-    {
-        for(; iter != iterEnd; iter++ )
+        if( _imageDB[i]->getNativeObject() == obj )
         {
-            if( iter->getNativeObject() == obj )
-            {
-                return true;
-            }
+            return true;
+        }
+    }
+    return false;
+}
+
+bool EGLDisplayObject::surfaceCreated(void *obj)
+{
+    for(int i=0; i<_surfaceDB.size(); i++)
+    {
+        if( _surfaceDB[i]->getNativeObject() == obj )
+        {
+            return true;
+        }
+    }
+    return false;
+}
+bool EGLDisplayObject::contextCreated(void *obj)
+{
+    for(int i=0; i<_contextDB.size(); i++)
+    {
+        if( _contextDB[i]->getNativeObject() == obj )
+        {
+            return true;
         }
     }
     return false;
@@ -140,7 +127,7 @@ EGLContextObject *EGLDisplayObject::createContextObject(EGLConfig config, EGLCon
     return context;
 }
 
-EGLSurfaceObject *EGLSurfaceObject::createSurfaceObject(EGLConfig config, EGLNativeWindowType win, const int *attrib_list)
+EGLSurfaceObject *EGLDisplayObject::createSurfaceObject(EGLConfig config, EGLNativeWindowType win, const int *attrib_list)
 {
     EGLSurfaceObject *surface = new EGLSurfaceObject(config, win, attrib_list);
     _surfaceDB.push_back(surface);
@@ -149,9 +136,9 @@ EGLSurfaceObject *EGLSurfaceObject::createSurfaceObject(EGLConfig config, EGLNat
 
 bool EGLDisplayObject::makeCurrent(EGLSurface draw, EGLSurface read, EGLContext ctx)
 {
-    EGLSurfaceObject *drawSurf = reinterpret_cast<EGLSurfaceObject*>draw;
-    EGLSurfaceObject *readSurf = reinterpret_cast<EGLSurfaceObject*>read;
-    EGLContextObject *context  = reinterpret_cast<EGLContextObject*>ctx;
+    EGLSurfaceObject *drawSurf = reinterpret_cast<EGLSurfaceObject*>(draw);
+    EGLSurfaceObject *readSurf = reinterpret_cast<EGLSurfaceObject*>(read);
+    EGLContextObject *context  = reinterpret_cast<EGLContextObject*>(ctx);
     
     EGLApiType api = context->getAPI();
     bool ret = true;
