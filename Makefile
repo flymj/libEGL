@@ -3,7 +3,13 @@ LD=ld
 CXXFILES= eglDispatchTable.cpp  \
           eglDisplayManager.cpp \
           eglDisplayObject.cpp \
-          eglDevice.cpp 
+          eglContextObject.cpp \
+          eglSurfaceObject.cpp \
+          eglConfigObject.cpp \
+          eglImageObject.cpp \
+          eglSyncObject.cpp \
+          eglDevice.cpp \
+          wsaInterface.cpp 
 
 OBJECTS=${patsubst %.cpp, %.o, ${CXXFILES}}
 
@@ -17,9 +23,15 @@ Headfiles= eglDisplayObject.h  \
            eglSyncObject.h     \
            eglConfigObject.h   \
            eglDevice.h         \
-           eglThreadMgr.h
+           eglThreadMgr.h      \
+           wsaInterface.h
 
-CXXFLAGS = -O2 -fPIC -I./ -I/usr/include -o 
+vpath %.cpp ./resource
+vpath %.cpp ./dispatch
+vpath %.cpp ./wsa
+vpath %.h   ./include
+
+CXXFLAGS = -O2 -fPIC -DATI_COMP_GCC -DATI_OS_LINUX -I./include -I./wsa -I/usr/include -o 
 LDFLAGS  = -fPIC -shared -o
 TARGET = libEGL.so
 all: $(OBJECTS)
